@@ -1,4 +1,4 @@
-class colonist{
+export class colonist{
   "person" : {
       "name" : "Camden",
       "age" : "33",

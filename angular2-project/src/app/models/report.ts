@@ -1,4 +1,4 @@
-class reports {
+export class reports {
   "encounter" : {
       "atype" : "Octospider",
       "date" : "2015-10-01",
