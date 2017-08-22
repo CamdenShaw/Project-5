@@ -11,6 +11,8 @@ ehthumbs.AppleDB
 *.Trashes
 # Thumbnails
 ._*
+prework
+the-app
 
 # Files that might appear in the root of a volume
 .DocumentRevisions-V100
