@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ReportService {
-    reportUrl = 'https://red-wdp-api.herokuapp.com/api/mars/aliens';
+    reportUrl = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
     constructor(private http: Http){}
     getReport(): Promise<Report[]> {
         return this.http.get(this.reportUrl)
@@ -13,7 +13,8 @@ export class ReportService {
                         .then((response) => response.json().report)
                         .catch(this.handleError);
     }
-     handleError(error) {
-        console.error(error);
+    private handleError(error: any) {
+        console.log("encounter services is returning an error</br>",error);
+        return Promise.reject(error.message ||error);
     }
 }

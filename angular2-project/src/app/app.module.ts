@@ -1,14 +1,34 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { RegisterComponent } from './components/register/register.component';
+import { EncounterComponent } from './components/encounters/encounters.component';
+import { ReportComponent } from './components/report/report.component';
+import { NotfoundComponent } from './components/notfound/notfound.component'
+
+import { appRoutes } from './app.routes';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
+    RegisterComponent,
+    EncounterComponent,
+    ReportComponent,
+    NotfoundComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule,
+    RouterModule.forRoot(appRoutes),
+    ReactiveFormsModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

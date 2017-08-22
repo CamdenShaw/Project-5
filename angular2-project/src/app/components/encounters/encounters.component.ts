@@ -5,15 +5,17 @@ import {JobService} from '../../services/job';
 
 @Component ({
   selector: 'app-report',
-  templateUrl: './report.component.html',
+  templateUrl: './encounter.component.html',
   styles: [],
   providers: [
     AlienService
   ]
 })
-export class ReportComponent implements OnInit {
+export class EncounterComponent implements OnInit {
 
   constructor (private alienService: AlienService, colonistService: ColonistService, jobService: JobService, ) {}
+
+
 
   async ngOnInit() {
     const aliens = await this.alienService.getAliens();

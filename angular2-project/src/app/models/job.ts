@@ -1,8 +1,5 @@
-export class job {
-  "Moisture Farmer" : {
-    "tasks" : {
-      "extract moisture", "reprogram droids", "clean droids", "buy power converter", "rescue princess", "defeat empire"
-    },
-   "job ID" : "1"
-  }
+export interface Job {
+  id: number;
+  name: string;
+  description: string;
 }
