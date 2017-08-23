@@ -12,6 +12,11 @@ import { EncounterComponent } from './components/encounters/encounters.component
 import { ReportComponent } from './components/report/report.component';
 import { NotfoundComponent } from './components/notfound/notfound.component'
 
+import { ColonistService } from './services/colonist';
+import { JobService } from './services/job';
+import { AlienService } from './services/alien';
+import { ReportService } from './services/encounter';
+
 import { appRoutes } from './app.routes';
 
 @NgModule({
@@ -30,7 +35,7 @@ import { appRoutes } from './app.routes';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [ColonistService, JobService, AlienService, ReportService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

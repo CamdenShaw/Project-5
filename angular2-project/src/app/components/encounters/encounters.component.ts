@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {AlienService} from '../../services/alien';
-import {ColonistService} from '../../services/colonist';
-import {JobService} from '../../services/job';
+import { Component, OnInit } from '@angular/core';
+import { AlienService } from '../../services/alien';
+import { ColonistService } from '../../services/colonist';
+import { JobService } from '../../services/job';
+import { AppModule } from '../../app.module';
 
 @Component ({
   selector: 'app-report',
@@ -21,6 +22,4 @@ export class EncounterComponent implements OnInit {
     const aliens = await this.alienService.getAliens();
     console.log(aliens);
   }
-
-
 }

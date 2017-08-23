@@ -4,7 +4,7 @@ import {ColonistService} from '../../services/colonist';
 import {JobService} from '../../services/job';
 
 @Component ({
-  selector: 'app-report',
+  selector: 'app-welcome',
   templateUrl: './welcome.component.html',
   styles: [],
   providers: [

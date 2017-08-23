@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class JobService {
-    jobUrl = 'https://red-wdp-api.herokuapp.com/api/mars/job';
+    jobUrl = 'https://red-wdp-api.herokuapp.com/api/mars/jobs';
     constructor(private http: Http){}
     getJob(): Promise<Job[]> {
         return this.http.get(this.jobUrl)
@@ -15,5 +15,6 @@ export class JobService {
     }
      handleError(error) {
         console.log("job services is returning an error</br>",error);
+        return Promise.reject(error.message || error);
     }
 }
