@@ -5,7 +5,7 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ColonistService {
-    colonistUrl = 'https://red-wdp-api.herokuapp.com/api/mars/colonist';
+    colonistUrl = 'https://red-wdp-api.herokuapp.com/api/mars/colonists';
     constructor(private http: Http){}
     newColonist(colonist: Colonist): Promise<Colonist> {
         let headers = new Headers({'Content-Type': 'application/json'});
