@@ -1,7 +1,7 @@
 
 export interface Alien {
   id: number;
-  type: string;
+  atype: string;
   submitted_by: string;
   description: string;
 }

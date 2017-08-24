@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit {
     console.log(this.jobs);
   }
 
-  async registerColonist() {
+   async registerColonist() {
     const newColonist: NewColonist = {
       name: this.registerForm.get('name').value,
       age: this.registerForm.get('age').value,
@@ -51,6 +51,7 @@ export class RegisterComponent implements OnInit {
     }
     const colonist = await this.colonistService.registerColonist(newColonist);
     console.log('colonist was saved!', colonist);
+    return colonist;
   }
 
   private noNumbers(validNameRegex): ValidatorFn {

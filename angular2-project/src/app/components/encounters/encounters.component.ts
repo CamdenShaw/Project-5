@@ -15,11 +15,13 @@ import { AppModule } from '../../app.module';
 export class EncounterComponent implements OnInit {
 
   constructor (private alienService: AlienService, colonistService: ColonistService, jobService: JobService, ) {}
-
-
-
-  async ngOnInit() {
-    const aliens = await this.alienService.getAliens();
-    console.log(aliens);
-  }
+  
+  
+  
+    async ngOnInit() {
+      const aliens = await this.alienService.getAliens();
+      console.log(aliens);
+    }
+  
+  
 }

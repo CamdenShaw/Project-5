@@ -1,12 +1,13 @@
 export interface Encounters {
   id: number;
+  atype: string;
   date: string;
   action: string;
   colinist_id: number;
-  atype: string;
 }
 
 export interface NewEncounters {
+  id: number;
   atype: string;
   date: string;
   action: string;
