@@ -7,7 +7,7 @@ import { AppModule } from '../../app.module';
 @Component ({
   selector: 'app-report',
   templateUrl: './encounter.component.html',
-  styles: [],
+  styleUrls: ['./encounter.component.scss'],
   providers: [
     AlienService
   ]

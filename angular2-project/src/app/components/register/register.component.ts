@@ -1,52 +1,62 @@
 import { Component, OnInit } from '@angular/core';
-import { ColonistService } from '../../services/colonist';
 import { JobService } from '../../services/job';
+import { ColonistService } from '../../services/colonist';
+import {FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
+import { Job } from '../../models/job';
+import {NewColonist} from '../../models/colonist';
 
 @Component ({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styles: [`
-    .warning { background: red; }
-    .ok { background: green; }
-  `],
+  styleUrls: ['./register.component.scss'],
   providers: [
-    ColonistService
+    ColonistService,
+    JobService
   ]
 })
 
 export class RegisterComponent implements OnInit {
-  public jobs;
-  public data = [
-    {text: "Alien Encounter 1"},
-    {text: "Alien Encounter 2"},
-    {text: "Alien Encounter 3"},
-    {text: "Alien Encounter 3"}
-  ];
+
+  public jobs: Job[];
+
+  registerForm = new FormGroup({
+    name: new FormControl('', [Validators.required,
+        Validators.maxLength(100),
+        Validators.minLength(2),
+        this.noNumbers( /\d/ ),
+        this.noNumbers( /[^A-Za-zçå]/ )
+      ]),
+    age:  new FormControl('', [Validators.required,
+        Validators.max(80),
+        Validators.min(-0.75)
+    ]),
+    job_id: new FormControl('', [Validators.required])
+  });
+
   constructor (
     private colonistService: ColonistService,
     private jobService: JobService
   ) {}
 
   async ngOnInit() {
-    // setInterval(() => {
-    //   this.data.push({text: `Encounter ${Math.random()}`});
-    // }, 2000);
-
-    
-    // const data = {
-    //   name: 'Hello There',
-    //   age: 50,
-    //   job_id: 2
-  }
-  removeListItem(item){
-    this.data = this.data.filter(li => li !== item);
+    this.jobs = await this.jobService.getJob();
+    console.log(this.jobs);
   }
 
-  addListItem(item){
-    this.data.push({ text: item });
+  async registerColonist() {
+    const newColonist: NewColonist = {
+      name: this.registerForm.get('name').value,
+      age: this.registerForm.get('age').value,
+      job_id: this.registerForm.get('job_id').value
+    }
+    const colonist = await this.colonistService.registerColonist(newColonist);
+    console.log('colonist was saved!', colonist);
   }
-    // const newColonist = await this.colonistService.registerColonist(data);
-    // console.log(newColonist);
-    // this.jobs = await this.jobService.getJob();
-    // console.log(this.jobs);
+
+  private noNumbers(validNameRegex): ValidatorFn {
+    return (control): { [key: string] : any } => {
+      const forbiddenName = validNameRegex.test(control.value);
+      return forbiddenName ?  { 'forbiddenName' : { value: control.value } } : null;
+    }
+  }
 }

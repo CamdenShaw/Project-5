@@ -10,10 +10,10 @@ export class JobService {
     getJob(): Promise<Job[]> {
         return this.http.get(this.jobUrl)
                         .toPromise()
-                        .then((response) => response.json().job)
+                        .then((response) => response.json().jobs)
                         .catch(this.handleError);
     }
-     handleError(error) {
+    private handleError(error:any): Promise<any> {
         console.log("job services is returning an error</br>",error);
         return Promise.reject(error.message || error);
     }

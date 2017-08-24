@@ -1,26 +1,14 @@
-<p>
-  register works!
-</p>
-
-{{ data }}
-
 <div class="register-page page">
-  <h1>Register</h1>
-  <input type="text" #item value="Default Encounter" /> <button (click)="addListItem(item.value)">Add Item</button>
-  <ul [ngClass]=" {warning: data.length >= 10, ok: data.length < 10} ">
-    <p *ngIf="data.length >= 10">Your List is TOO LONG!</p>
-    <li 
-    [style.backgroundColor]="data.length >= 4 ? 'white' : 'lightpink'"
-    *ngFor="let encounter of data">
-      {{encounter.text}}
-      <button type="button" (click)="removeListItem(encounter)">X</button>
-  </li>
-  </ul>
-  <input type="text" name="Name" placeholder="Name">
-  <input type="number" name="Age" placeholder="Age">
-  <select>
-    <option value="">Select Occupation</option>
-    <option *ngFor="let job of jobs" value="{{ job.id }}"></option>
-  </select>
-  <button class="check-in">Check In</button>
+    <h1>Register</h1>
+    <form [formGroup]="registerForm" novalidate (submit)="registerColonist()" >
+    <input type="text" placeholder="Name" formControlName="name"/>
+    <input type="number" placeholde="age" formControlName="age"/>
+    <select formControlName="job_id">
+      <option value="">Select a Job</option>
+      <option *ngFor="let job of jobs" [value]="job.id" >{{ job.name }}</option>
+    </select>
+    <button [disabled]="registerForm.status === 'INVALID'" type="submit">Register</button>
+  </form>
+  {{ registerForm.value | json }}
+  {{ registerForm.status }}
 </div>

@@ -6,7 +6,7 @@ import {JobService} from '../../services/job';
 @Component ({
   selector: 'app-report',
   templateUrl: './notfound.component.html',
-  styles: [],
+  styleUrls: ['./notfound.component.scss'],
   providers: [
     AlienService
   ]

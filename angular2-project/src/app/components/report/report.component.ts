@@ -6,7 +6,7 @@ import {JobService} from '../../services/job';
 @Component ({
   selector: 'app-report',
   templateUrl: './report.component.html',
-  styles: [],
+  styleUrls: ['./report.component.scss'],
   providers: [
     AlienService
   ]
