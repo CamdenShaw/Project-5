@@ -1,26 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { AlienService } from '../../services/alien';
-import { ColonistService } from '../../services/colonist';
-import { JobService } from '../../services/job';
+import { EncountersService } from '../../services/encounter';
 import { AppModule } from '../../app.module';
 
 @Component ({
-  selector: 'app-report',
+  selector: 'app-encounter',
   templateUrl: './encounter.component.html',
   styleUrls: ['./encounter.component.scss'],
   providers: [
-    AlienService
+    AlienService,
+    EncountersService
   ]
 })
 export class EncounterComponent implements OnInit {
 
-  constructor (private alienService: AlienService, colonistService: ColonistService, jobService: JobService, ) {}
+  constructor (
+    private alienService: AlienService,
+    private encountersService: EncountersService,
+  ) {}
   
   
   
     async ngOnInit() {
-      const aliens = await this.alienService.getAliens();
-      console.log(aliens);
     }
   
   

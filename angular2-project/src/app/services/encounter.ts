@@ -13,7 +13,7 @@ export class EncountersService {
                     .then((response) => response.json().encounters)
                     .catch(this.handleError);
     }
-    newEncounter(encounter: NewEncounters): Promise<Encounters> {
+    newEncounter(encounter: NewEncounters): Promise<Encounters[]> {
         return this.http.get(this.encountersUrl)
                         .toPromise()
                         .then((response) => response.json().encounters)
@@ -21,6 +21,6 @@ export class EncountersService {
     }
     private handleError(error: any) {
         console.log("encounter services is returning an error</br>",error);
-        return Promise.reject(error.message ||error);
+        return Promise.reject(error.message || error);
     }
 }

@@ -1,1 +1,10 @@
-<router-outlet></router-outlet>
+<nav>
+  <a routerLink="/">Home</a> |
+  <a routerLink="/register">Register</a> |
+  <a routerLink="/encounters">Encounters</a> |
+  <a routerLink="/report">Report</a>
+</nav>
+
+<div [@routerTransition]="getState(o)">
+  <router-outlet #o="outlet"></router-outlet>
+</div>
