@@ -7,7 +7,6 @@ export interface Encounters {
 }
 
 export interface NewEncounters {
-  id: number;
   date: string;
   colonist_id: number;
   atype: string;

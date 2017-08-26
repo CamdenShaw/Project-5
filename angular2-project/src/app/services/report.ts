@@ -7,35 +7,35 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class ReportService {
     reportUrl = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
-    public reportStorage;
     public reportArray = [];
 
     constructor(private http: Http){}
 
-    newReport(report: Report): Promise<Report[]> {
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let body = JSON.stringify({ report });
+    getReport(report: Report): Promise<Report[]> {
         return this.http
-                    .post(this.reportUrl, body, { headers: headers })
+                    .get(this.reportUrl)
                     .toPromise()
                     .then(response => response.json().encounters)
                     .catch(this.handleError);
     }
+
     reportEncounter(report: ReportEncounter): Promise<Encounters[]> {
-        if ( this.reportStorage == null && this.reportStorage === 'undefined' ) {
+        let headers = new Headers({"Content-Type": "application/json"});
+        let body = JSON.stringify({ report });
+
+        if ( typeof localStorage.getItem("report") == "undefined" ) {
             localStorage.setItem("report", '' );
             this.reportArray = [];
-            console.log('empty array', this.reportArray);
+            console.log('empty report array from services ', this.reportArray);
         }
-        else {
-            this.reportStorage = localStorage.getItem("report");
-            this.reportArray = JSON.parse(this.reportStorage);
-            console.log('not-so-empty array', this.reportArray);
+        else {;
+            this.reportArray = JSON.parse(localStorage.getItem("report"));
+            console.log('not-so-empty report array from services ', this.reportArray);
         }
         this.reportArray.push(report);
         localStorage.setItem("report", JSON.stringify(this.reportArray));
         console.log(report);
-        return this.http.get(this.reportUrl)
+        return this.http.post(this.reportUrl, report, { headers: headers })
                         .toPromise()
                         .then((response) => response.json().encounters)
                         .catch(this.handleError);

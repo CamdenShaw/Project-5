@@ -25,13 +25,11 @@ export class ReportComponent implements OnInit {
   
   public aliens: Alien[];
   public encounter: NewEncounters[];
-  public reportStorage;
   public reportArray = [];
   public report;
-  public colonistStorage;
   public colonistArray;
   public colonist;
-  public colonistId;
+  public colonistID;
   public date;
   public encountersID;
   
@@ -55,32 +53,28 @@ export class ReportComponent implements OnInit {
     async ngOnInit() {
       this.aliens = await this.alienService.getAliens();
 
-      this.colonistStorage = await localStorage.getItem("colonist");
-      this.colonistArray = await JSON.parse(this.colonistStorage);
-      this.colonist = await this.colonistArray[this.colonistArray.length - 1];
-
-      this.reportStorage = await localStorage.getItem("report");
-      this.reportArray = await JSON.parse(this.reportStorage);
+      this.colonist = await await JSON.parse(localStorage.getItem("colonist_info"));
+      console.log(this.colonist);
+      this.colonistID = await this.colonist.id;
+      console.log(this.colonistID);
 
       this.date = new Date().toISOString().slice(0, 10);
 
-      if ( this.reportStorage == null && this.reportStorage === 'undefined' ) {
+      if ( typeof localStorage.getItem("report") == "undefined" ) {
         localStorage.reportStorage.setItem("report", '' );
         this.reportArray = [];
         this.encountersID = 1;
-        console.log('empty array', this.reportArray);
+        console.log('empty array ', this.reportArray);
       }
       else {
-          this.reportStorage = localStorage.getItem("colonist");
-          this.reportArray = JSON.parse(this.reportStorage);
-          console.log('not-so-empty array', this.reportArray);
+          this.reportArray = JSON.parse(localStorage.getItem("colonist"));
+          console.log('not-so-empty array ', this.reportArray);
           this.encountersID = this.reportArray.length + 1;
       }
     }
   
     async reportEncounter() {
         const newEncounter: NewEncounters = {
-          id: this.encountersID,
           atype: this.reportForm.get('alien_id').value,
           date: this.date,
           action: this.reportForm.get('description').value,

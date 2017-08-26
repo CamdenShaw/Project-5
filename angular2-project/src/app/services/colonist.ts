@@ -11,37 +11,32 @@ export class ColonistService {
     public colonistID;
 
     constructor(private http: Http){}
-
-    newColonist(colonist: Colonist): Promise<Colonist[]> {
-        let headers = new Headers({'Content-Type': 'application/json'});
-        let body = JSON.stringify({ colonist });
-        return this.http
-                   .post(this.colonistUrl, body, { headers: headers })
-                   .toPromise()
-                   .then(response => response.json().colonist)
-                   .catch(this.handleError);
+    
+    getColonist(): Promise<Colonist[] > {
+        return this.http.get(this.colonistUrl)
+                        .toPromise()
+                        .then((response) => response.json().colonists)
+                        .catch(this.handleError);
     }
-    registerColonist(colonist: NewColonist): Promise<Colonist[]> {
 
-        if ( this.colonistStorage == null && this.colonistStorage === 'undefined' ) {
-            localStorage.setItem("colonist", '' );
-            this.colonistArray = [];
-            console.log('empty array', this.colonistArray);
-        }
+    newColonist(colonist: NewColonist): Promise<NewColonist[]> {
+        let headers = new Headers({"Content-Type": "application/json"});
+        let body = JSON.stringify({ colonist });
+
+        if ( localStorage.getItem("colonist").length === 0 ) { this.colonistArray = []; }
         else {
-            this.colonistStorage = localStorage.getItem("colonist");
-            this.colonistArray = JSON.parse(this.colonistStorage);
-            console.log('not-so-empty array', this.colonistArray);
+            this.colonistStorage = JSON.parse(localStorage.getItem("colonist"));
+            this.colonistArray = (this.colonistStorage);
         }
 
         this.colonistArray.push(colonist);
         localStorage.setItem("colonist", JSON.stringify(this.colonistArray));
-        console.log(colonist);
-        return this.http.get(this.colonistUrl)
+        return this.http.post(this.colonistUrl, body, { headers: headers })
                         .toPromise()
-                        .then((response) => response.json().colonist)
+                        .then((response) => response.json().colonists)
                         .catch(this.handleError);
     }
+
     private handleError(error) {
         console.log("Colonist services is returning an error</br>", error);
         return Promise.reject(error.message || error);

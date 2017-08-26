@@ -1,5 +1,6 @@
 export interface Report {
   encounter : {
+      id: number,
       atype : string,
       date : string,
       action : string,

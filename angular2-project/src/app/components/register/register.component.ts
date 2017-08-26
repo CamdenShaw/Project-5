@@ -3,7 +3,7 @@ import { JobService } from '../../services/job';
 import { ColonistService } from '../../services/colonist';
 import {FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { Job } from '../../models/job';
-import { NewColonist } from '../../models/colonist';
+import { Colonist, NewColonist } from '../../models/colonist';
 import { Router } from '@angular/router';
 
 @Component ({
@@ -19,9 +19,9 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
 
   public jobs: Job[];
-  public colonistStorage;
-  public colonistArray;
-  public colonistID;
+  public colonistArray = [];
+  public colonistJob;
+
 
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required,
@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
       ]),
     age:  new FormControl('', [Validators.required,
         Validators.max(80),
-        Validators.min(-0.75)
+        Validators.min(18)
     ]),
     job_id: new FormControl('', [Validators.required])
   });
@@ -40,35 +40,37 @@ export class RegisterComponent implements OnInit {
   constructor (
     private colonistService: ColonistService,
     private jobService: JobService,
-    private router: Router
-    
+    private router: Router,
   ) {}
 
   async ngOnInit() {
     this.jobs = await this.jobService.getJob();
-    if ( this.colonistStorage == null && this.colonistStorage === 'undefined' ) {
-      localStorage.setItem("colonist", '' );
-      this.colonistArray = [];
-      this.colonistID = 0;
-      console.log('empty array', this.colonistArray);
+
+    if ( typeof localStorage.getItem("colonist")) {
+      if (localStorage.getItem("colonist").length === 0 ) {
+        localStorage.setItem("colonist", "" );
+        this.colonistArray = [];
+      }
+      else { this.colonistArray = (JSON.parse(localStorage.getItem("colonist"))); }
     }
     else {
-        this.colonistStorage = localStorage.getItem("colonist");
-        this.colonistArray = JSON.parse(this.colonistStorage);
-        this.colonistID = this.colonistArray.length;
-        console.log('not-so-empty array', this.colonistArray);
+      localStorage.setItem("colonist", "" );
+      this.colonistArray = [];
     }
   }
 
    async registerColonist() {
+    this.colonistJob = this.registerForm.get("job_id").value;
     const newColonist: NewColonist = {
-      name: this.registerForm.get('name').value,
-      job_id: this.registerForm.get('job_id').value,
-      id: this.colonistID + 1,
-      age: this.registerForm.get('age').value
+      name: this.registerForm.get("name").value,
+      age: this.registerForm.get("age").value,
+      job_id: this.colonistJob
     }
-    const colonist = await this.colonistService.registerColonist(newColonist);
-    console.log('colonist was saved!', newColonist);
+    const newLocalColonist = await this.colonistService.newColonist( newColonist );
+    const colonists = await this.colonistService.getColonist();
+    const newLocal = await colonists[colonists.length - 1];
+    localStorage.setItem("colonist_info", JSON.stringify(newLocal));
+    console.log('colonist was saved!', colonists, 'headquarters has sent you the registration info for your new colonist: ', newLocal );
     if (this.registerForm.status === 'VALID') { this.router.navigate(['/encounters']);}
   }
 

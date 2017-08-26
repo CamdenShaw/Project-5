@@ -15,9 +15,9 @@ export class EncountersService {
     }
     newEncounter(encounter: NewEncounters): Promise<Encounters[]> {
         return this.http.get(this.encountersUrl)
-                        .toPromise()
-                        .then((response) => response.json().encounters)
-                        .catch(this.handleError);
+                    .toPromise()
+                    .then((response) => response.json().encounters)
+                    .catch(this.handleError);
     }
     private handleError(error: any) {
         console.log("encounter services is returning an error</br>",error);
