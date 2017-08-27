@@ -76,13 +76,13 @@ export class ReportComponent implements OnInit {
   
     async reportEncounter() {
         const newEncounter: NewEncounters = {
-          local_id: this.encountersID,
           atype: this.reportForm.get('alien_id').value,
           date: this.date,
           action: this.reportForm.get('description').value,
           colonist_id: this.colonist.id
       }
       const newReport: ReportEncounter = {
+        local_id: this.encountersID,
         'encounter': newEncounter
       }
       const report = await this.reportService.reportEncounter(newReport);

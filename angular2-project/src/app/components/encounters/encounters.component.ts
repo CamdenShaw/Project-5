@@ -46,7 +46,7 @@ export class EncounterComponent implements OnInit {
       const importLocalArray = await JSON.parse(localStorage.getItem("report"));
       const newLocalArray = importLocalArray.slice(-50).reverse();
       newLocalArray.forEach(item => {
-        encountersHtml.innerHTML += `<h2 class="header-${item.encounter.local_id}"><span> Report# ${JSON.stringify(item.encounter.local_id)}</h2>
+        encountersHtml.innerHTML += `<h2 class="header-${item.local_id}"><span> Report# ${JSON.stringify(item.local_id)}</h2>
                                 <p class="date-${item.encounter.id}">${item.encounter.date}</p>
                                 <p class="colonist-${item.encounter.colonist_id}">Witnessed by colonist-${item.encounter.colonist_id}</p>
                                 <p class="alien-${item.encounter.atype}">The following is the colonist\'s account of their encounter with ${item.encounter.atype}: 

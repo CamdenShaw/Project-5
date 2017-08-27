@@ -9,8 +9,8 @@ export interface Report {
 }
 
 export interface ReportEncounter {
+  local_id: number;
   encounter: {
-    local_id: number,
     atype : string,
     date : string,
     action : string,
