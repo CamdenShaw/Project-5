@@ -2,9 +2,50 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background-color: darken(magenta, 44%);
+  .register-header {
+    color: white;
+    text-transform: uppercase;
+    font-family: "Arial Black", Gadget, sans-serif;
+  }
   .register-form {
     display: flex;
     width: 100vw;
     flex-direction: column;
+    justify-content: space-around;
+    height: 60vh;
+    align-items: center;
+    .field {
+      height: 10vh;
+      width: 90vw;
+      background-color: darken(silver, 20%);
+      color: #EEE;
+      border-color: silver;
+      &::placeholder {
+        color: #EEE;
+        padding: 0 8px;
+      }
+      &:placeholder-shown {
+        color: #EEEDDD;
+        padding: 0 8px;
+      }
+    }
+    select.job-input {
+      border-radius: 0;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+    .submit-button {
+      display: block;
+      width: 20vw;
+      background-color: darken(blue, 30%);
+      border-color: lighten(blue, 20%);
+      height: 11vh;
+      border-radius: 3px;
+      color: lighten(silver, 5%);
+    }
   }
 }
