@@ -5,6 +5,7 @@ import {
   animate,
   style,
   group,
+  state,
   animateChild,
   query,
   stagger,
@@ -12,7 +13,7 @@ import {
 } from "@angular/animations";
 
 export const routerTransition = trigger( 'routerTransition', [
-  transition( '* <=> *', [
+  transition( 'welcome <=> register', [
     query(':enter, :leave', style({ position: 'fixed', width: '100%' } ), { optional: true }),
     group([
       query(':enter', [
@@ -23,6 +24,55 @@ export const routerTransition = trigger( 'routerTransition', [
         animate( '0.5s ease-in-out', style ({transform: 'translateX(-100%' }))
       ], {optional: true })
     ])
+  ]),
+  transition( 'register <=> encounters', [
+    query(':enter, :leave', style({ position: 'fixed', width: '100%' } ), { optional: true }),
+    group([
+      query(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate( '0.5s ease-in-out', style({ transform: 'translateX(0%)' })) ], { optional: true }),
+      query( ':leave', [
+        style({ transform: 'translateX(0%)' }),
+        animate( '0.5s ease-in-out', style ({transform: 'translateX(-100%' }))
+      ], {optional: true })
+    ])
+  ]),  transition( 'encounters <=> report', [
+    query(':enter, :leave', style({ position: 'fixed', width: '100%' } ), { optional: true }),
+    group([
+      query(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate( '0.5s ease-in-out', style({ transform: 'translateX(0%)' })) ], { optional: true }),
+      query( ':leave', [
+        style({ transform: 'translateX(0%)' }),
+        animate( '0.5s ease-in-out', style ({transform: 'translateX(-100%' }))
+      ], {optional: true })
+    ])
+  ]),
+  transition( 'report <=> encounter', [
+    query(':enter, :leave', style({ position: 'fixed', width: '100%' } ), { optional: true }),
+    group([
+      query(':enter', [
+        style({ transform: 'translateX(100%)' }),
+        animate( '0.5s ease-in-out', style({ transform: 'translateX(0%)' })) ], { optional: true }),
+      query( ':leave', [
+        style({ transform: 'translateX(0%)' }),
+        animate( '0.5s ease-in-out', style ({transform: 'translateX(-100%' }))
+      ], {optional: true })
+    ])
+  ]),
+    transition( '* <=> notfound', [
+    query(':enter, :leave', style({ position: 'fixed', width: '100%' } ), { optional: true }),
+    group([
+      query(':enter', [
+        style({ backgroundColor: 'red',
+                transform: 'scale(1.3)' }),
+        animate( '0.5s ease-in-out', style({ transform: 'scale(1)' })) ], { optional: true }),
+      query( ':leave', [
+        style({ backgroundColor: 'red',
+                transform: 'scale(1.3)' }),
+        animate( '0.5s ease-in-out', style ({transform: 'scale(0)' }))
+      ], {optional: true })
+    ])
   ])
 ]);
 
@@ -30,7 +80,7 @@ export const routerTransition = trigger( 'routerTransition', [
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  animations: [ routerTransition ],
+  animations: [ routerTransition ]
 })
 export class AppComponent {
   getState(outlet) {

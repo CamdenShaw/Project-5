@@ -21,6 +21,7 @@ export class RegisterComponent implements OnInit {
   public jobs: Job[];
   public colonistArray = [];
   public colonistJob;
+  public colonistID = 1;
 
 
   registerForm = new FormGroup({
@@ -32,7 +33,7 @@ export class RegisterComponent implements OnInit {
       ]),
     age:  new FormControl('', [Validators.required,
         Validators.max(80),
-        Validators.min(18)
+        Validators.min(18),
     ]),
     job_id: new FormControl('', [Validators.required])
   });
@@ -51,7 +52,10 @@ export class RegisterComponent implements OnInit {
         localStorage.setItem("colonist", "" );
         this.colonistArray = [];
       }
-      else { this.colonistArray = (JSON.parse(localStorage.getItem("colonist"))); }
+      else {
+        this.colonistArray = (JSON.parse(localStorage.getItem("colonist")));
+        this.colonistID = this.colonistArray.length + 1;
+      }
     }
     else {
       localStorage.setItem("colonist", "" );
@@ -62,6 +66,7 @@ export class RegisterComponent implements OnInit {
    async registerColonist() {
     this.colonistJob = this.registerForm.get("job_id").value;
     const newColonist: NewColonist = {
+      local_id: this.colonistID,
       name: this.registerForm.get("name").value,
       age: this.registerForm.get("age").value,
       job_id: this.colonistJob

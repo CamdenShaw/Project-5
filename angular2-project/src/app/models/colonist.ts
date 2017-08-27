@@ -8,6 +8,7 @@ export interface Colonist {
 }
 
 export interface NewColonist {
+  local_id: number,
   name: string;
   age: string;
   job_id: string;

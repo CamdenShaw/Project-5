@@ -31,7 +31,7 @@ export class ReportComponent implements OnInit {
   public colonist;
   public colonistID;
   public date;
-  public encountersID;
+  public encountersID = 1;
   
     reportForm = new FormGroup({
       description: new FormControl('', [Validators.required,
@@ -67,14 +67,16 @@ export class ReportComponent implements OnInit {
         console.log('empty array ', this.reportArray);
       }
       else {
-          this.reportArray = JSON.parse(localStorage.getItem("colonist"));
+          this.reportArray = JSON.parse(localStorage.getItem("report"));
           console.log('not-so-empty array ', this.reportArray);
           this.encountersID = this.reportArray.length + 1;
+          console.log(this.encountersID);
       }
     }
   
     async reportEncounter() {
         const newEncounter: NewEncounters = {
+          local_id: this.encountersID,
           atype: this.reportForm.get('alien_id').value,
           date: this.date,
           action: this.reportForm.get('description').value,

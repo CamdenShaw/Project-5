@@ -7,6 +7,7 @@ export interface Encounters {
 }
 
 export interface NewEncounters {
+  local_id: number;
   date: string;
   colonist_id: number;
   atype: string;
