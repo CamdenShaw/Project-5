@@ -9,6 +9,7 @@
     color: white;
     text-transform: uppercase;
     font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 3.5rem;
   }
   .register-form {
     display: flex;
@@ -23,6 +24,8 @@
       background-color: darken(silver, 20%);
       color: #EEE;
       border-color: silver;
+      border-width: 0px;
+      padding: 0 8px;
       &::placeholder {
         color: #EEE;
         padding: 0 8px;
@@ -37,6 +40,12 @@
       border-top: none;
       border-left: none;
       border-right: none;
+      border-style: none;
+      border-image: none;
+      -webkit-appearance: none;
+      margin: 0;
+      padding: 0 8px;
+      box-sizing: unset;
     }
     .submit-button {
       display: block;
@@ -46,6 +55,16 @@
       height: 11vh;
       border-radius: 3px;
       color: lighten(silver, 5%);
+      text-transform: uppercase;
+      letter-spacing: 7px;
+      font-size: 1.2rem;
+      text-align: center;
+      [disabled]:hover {
+        cursor: not-allowed;
+      }
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }

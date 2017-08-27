@@ -7,11 +7,11 @@
     <input class="age-input field"type="number" placeholder="age" formControlName="age"/>
 
     <select class="job-input field" formControlName="job_id">
-      <option value="">Select a Job</option>
+      <option value="">select a job</option>
       <option *ngFor="let job of jobs" [value]="job.id" >{{ job.name }}</option>
     </select>
 
-    <button class="submit-button" [disabled]="registerForm.status === 'INVALID'" type="submit">Register</button>
-    
+    <button class="submit-button" [disabled]="registerForm.status === 'INVALID'" type="submit">check in</button>
+
   </form>
 </main>
