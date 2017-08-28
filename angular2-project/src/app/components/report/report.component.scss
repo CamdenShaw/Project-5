@@ -27,6 +27,7 @@
     .field {
       background-color: darken(red, 41%);
       border-color: darken(red, 44%);
+      color: white;
       &::placeholder {
         color: #EEE;
         padding: 0 8px;
