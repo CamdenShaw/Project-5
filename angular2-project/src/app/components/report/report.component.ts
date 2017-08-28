@@ -75,25 +75,25 @@ export class ReportComponent implements OnInit {
     }
   
     async reportEncounter() {
-        const newEncounter: NewEncounters = {
-          atype: this.reportForm.get('alien_id').value,
-          date: this.date,
-          action: this.reportForm.get('description').value,
-          colonist_id: this.colonist.id
-      }
-      const newReport: ReportEncounter = {
-        local_id: this.encountersID,
-        'encounter': newEncounter
-      }
-      const report = await this.reportService.reportEncounter(newReport);
-      console.log('colonist has provided a report of the encounter:', newReport, '</br>I guess we\'ll add it to the pile:', report);
-      if (this.reportForm.status === 'VALID') { this.router.navigate(['/encounters']);}
+      const newEncounter: NewEncounters = {
+        atype: this.reportForm.get('alien_id').value,
+        date: this.date,
+        action: this.reportForm.get('description').value,
+        colonist_id: this.colonist.id
     }
-  
-    private noNumbers(validNameRegex): ValidatorFn {
-      return (control): { [key: string] : any } => {
-        const forbiddenName = validNameRegex.test(control.value);
-        return forbiddenName ?  { 'forbiddenName' : { value: control.value } } : null;
-      }
+    const newReport: ReportEncounter = {
+      local_id: this.encountersID,
+      'encounter': newEncounter
     }
+    const report = await this.reportService.reportEncounter(newReport);
+    console.log('colonist has provided a report of the encounter:', newReport, '</br>I guess we\'ll add it to the pile:', report);
+    if (this.reportForm.status === 'VALID') { this.router.navigate(['/encounters']);}
+  }
+
+  private noNumbers(validNameRegex): ValidatorFn {
+    return (control): { [key: string] : any } => {
+      const forbiddenName = validNameRegex.test(control.value);
+      return forbiddenName ?  { 'forbiddenName' : { value: control.value } } : null;
+    }
+  }
 }

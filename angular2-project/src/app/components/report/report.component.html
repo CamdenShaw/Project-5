@@ -1,19 +1,19 @@
-<div class="reports-page page">
-  <h1>Report and Encounter</h1>
-  <p>Safety on Mars is your responsibility</p>
+<main class="reports-page page">
+  <div>
+    <h1 class="report-title">Report an Encounter</h1>
+    <p class="report-subtitle">Safety on Mars is your responsibility</p>
+  </div>
 
-  <form [formGroup]="reportForm" novalidate (submit)="reportEncounter()" >
+  <form class="report-form" [formGroup]="reportForm" novalidate (submit)="reportEncounter()" >
 
-    <select formControlName="alien_id">
+    <select class="field report-selector" formControlName="alien_id">
       <option value="">Select an alien</option>
       <option *ngFor="let alien of aliens" [value]="alien.type" >{{ alien.type }}</option>
     </select>
 
-    <textarea type="text" placeholder="describe your encounter" formControlName="description"></textarea>
+    <textarea class="field report-text-field" type="text" placeholder="describe your encounter" formControlName="description"></textarea>
 
-    <button [disabled]="reportForm.status === 'INVALID'" type="submit">Submit Report</button>
+    <button class="field report-button" [disabled]="reportForm.status === 'INVALID'" type="submit">Submit Report</button>
+
   </form>
-
-  {{ reportForm.value | json }}
-  {{ reportForm.status }}
-</div>
+</main>

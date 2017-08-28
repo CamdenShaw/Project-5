@@ -31,7 +31,7 @@ export class EncounterComponent implements OnInit {
       arrayDiv.innerHTML += `<h2 class="header-${item.id}">Report# ${JSON.stringify(item.id)}</h2>
                               <p class="date-${item.id}">${item.date}</p>
                               <p class="colonist-${item.colonist_id}">Witnessed by colonist-${item.colonist_id}</p>
-                              <p class="alien-${item.atype}">The following is the colonist\'s account of their encounter with ${item.atype}: 
+                              <p class="intro alien-${item.id}">The following is the colonist\'s account of their encounter with ${item.atype}: 
                               <br><span>${item.action}</span></p>`;
                               
     });
@@ -49,7 +49,7 @@ export class EncounterComponent implements OnInit {
         encountersHtml.innerHTML += `<h2 class="header-${item.local_id}"><span> Report# ${JSON.stringify(item.local_id)}</h2>
                                 <p class="date-${item.encounter.id}">${item.encounter.date}</p>
                                 <p class="colonist-${item.encounter.colonist_id}">Witnessed by colonist-${item.encounter.colonist_id}</p>
-                                <p class="alien-${item.encounter.atype}">The following is the colonist\'s account of their encounter with ${item.encounter.atype}: 
+                                <p class="intro alien-${item.encounter.id}">The following is the colonist\'s account of their encounter with ${item.encounter.atype}: 
                                 <br><span>${item.encounter.action}</span></p>`;
                                 
       });

@@ -63,7 +63,12 @@
         cursor: not-allowed;
       }
       &:hover {
+        transition: .5s;
         cursor: pointer;
+        background-color: darken(blue, 35%);
+        font-weight: bold;
+        box-shadow: 0px 0px 10px darken(blue, 25%);
+        text-shadow: 0 0 18px blue;
       }
     }
   }
