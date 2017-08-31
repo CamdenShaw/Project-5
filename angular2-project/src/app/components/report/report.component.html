@@ -7,7 +7,7 @@
   <form class="report-form" [formGroup]="reportForm" novalidate (submit)="reportEncounter()" >
 
     <select class="field report-selector" formControlName="alien_id">
-      <option value="">Select an alien</option>
+      <option value="">select an alien</option>
       <option *ngFor="let alien of aliens" [value]="alien.type" >{{ alien.type }}</option>
     </select>
 

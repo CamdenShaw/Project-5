@@ -2,101 +2,110 @@ main{
   height: 100vh;
   background-color: lighten(lightblue, 19%);
 }
-  .header h1 {
-    margin: 0;
-    padding: 0;
-    height: 15vh;
-    padding-bottom: 3vh;
-    text-align: center;
-    font-size: 0.8em;
-    font-weight: 100;
-    font-family: "Lucida Console", Monaco, monospace;
-    .encounters-main-title {
-      font-weight: bold;
-      font-family: impact;
-      font-size: 2rem;
-      text-transform: uppercase;
-    }
+.header h1 {
+  margin: 0;
+  padding: 0;
+  height: 15vh;
+  padding-bottom: 3vh;
+  text-align: center;
+  font-size: 0.8em;
+  font-weight: 100;
+  font-family: "Arial Black", Gadget, sans-serif;
+  .encounters-main-title {
+    font-weight: bold;
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
   }
-  .reports-container {
-    margin: 0;
-    padding: 0;
-    height: 60vh;
-    width: 100%;
-    display: flex;
-    .encounters-array{
-      width: calc(50vw - 50px);
-      overflow: scroll;
-      text-align: right;
-      padding-right: 30px;
-      padding-left: 20px;
-      border-right: 1px black solid;
-      p.intro {
-        font-style: italic;
-        span {
-          text-decoration: none;
-        }
-      }
+}
+.reports-container {
+  font-family: "Courier New", Courier, monospace;
+  margin: 0;
+  padding: 0;
+  height: 60vh;
+  width: 100%;
+  display: flex;
+  .encounters-array{
+    h1.global-title {
+      font-family: "Arial Black", Gadget, sans-serif;
     }
-    .local-encounters-array{
-      width: calc(50vw - 50px);
-      overflow: scroll;
-      text-align: left;
-      padding-left: 30px;
-      padding-left: 20px;
-      border-left: 1px black solid;
-      .intro {
-        font-style: italic;
-        span {
-          text-decoration: none;
-        }
+    width: calc(50vw - 50px);
+    overflow: scroll;
+    text-align: right;
+    padding-right: 30px;
+    padding-left: 20px;
+    border-right: 1px black solid;
+    p.intro {
+      font-style: italic;
+      span {
+        text-decoration: none;
       }
     }
   }
-  .encounter-footer{
-    width: 100vw;
-    height: 24vh;
-    background-color: darken(orange, 5%);
-    position: fixed;
-    left: 0;
-    bottom: 0;
+  .local-encounters-array{
+    width: calc(50vw - 50px);
+    overflow: scroll;
+    text-align: left;
+    padding-left: 30px;
+    padding-left: 20px;
+    border-left: 1px black solid;
+    .intro {
+      font-style: italic;
+      span {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.encounter-footer{
+  width: 100vw;
+  height: 24vh;
+  background-color: #DA0027;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  .report-link{
+    display: block;
+    font-family: Impact, Charcoal, sans-serif;
+    align-self: center;
+    width: 30vw;
     display: flex;
-    justify-content: space-around;
-    .report-link{
-      text-align: center;
-      border: 6px darken(midnightblue, 4%) solid;
-      border-radius: 8px;
-      background-color: lighten(#181870, 4%);
-      display: block;
-      padding: 15px 40px;
+    justify-content: center;
+    align-content: center;
+    min-width: 200px;
+    background-color: darken(blue, 30%);
+    border: 2px lighten(blue, 20%) solid;
+    height: 11vh;
+    border-radius: 3px;
+    z-index:2;
+    &:hover {
+      transition: .5s;
+      box-shadow: 0px 0px 10px darken(blue, 25%);
+      cursor: pointer;
+      background-color: darken(blue, 35%);
+      a, a:visited{
+        transition: .5s;
+        color: white;
+        font-weight: bold;
+        text-shadow: 0 0 18px blue;
+      }
+    }
+    a{
+      transition: .5s;
+      color: lighten(silver, 20%);
       height: 20px;
       text-transform: uppercase;
-      margin: auto;
-      box-shadow: 0px 0px 55px -8px #000;
-      &:hover {
-        transition: .5s;
-        background-color: lighten(#181870, 14%);
-        border-color: darken(midnightblue, 14%);
-        font-weight: bold;
-        font-size: 0.97em;
-        font-style: italic;
-        cursor: pointer;
-        text-shadow: 0 0 18px #fff;
-        box-shadow: 10px 10px 5px #555;
-      }
-      a{
-        text-decoration: none;
-        font-family: arial;
-        padding: auto;
-        &:hover{
-        color: #ff8811;
-        }
-        &:link{
-        color: lighten(#ffdd11, 30%);
-        }
-        &:visited{
-        color: lighten(#ffdd11, 30%);
-        }
+      text-decoration: none;
+      letter-spacing: 7px;
+      font-size: 1.2rem;
+      align-self: center;
+      text-align: center;
+      &:link, &:visited {
+        color: lighten(silver, 20%);
       }
     }
   }
+}

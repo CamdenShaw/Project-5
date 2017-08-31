@@ -1,15 +1,19 @@
 <main class="register-page page">
+  <div class="planet-mars"></div>
   <h1 class="register-header" >Register</h1>
-
+  
   <form class="register-form active" [formGroup]="registerForm" novalidate (submit)="registerColonist()" >
 
     <input class="name-input active field" type="text" placeholder="name" formControlName="name"/>
+    <div class="registration-input-error" ngShow="registerForm.name.$error.required" ></div>
     <input class="age-input active field"type="number" placeholder="age" formControlName="age"/>
+    <div class="registration-input-error" ngShow="registerForm.name.$error.required" ></div>
 
     <select class="job-input active field" formControlName="job_id">
       <option value="">select a job</option>
       <option *ngFor="let job of jobs" [value]="job.id" >{{ job.name }}</option>
     </select>
+    <div class="registration-select-error" ngShow="registerForm.name.$error.required" ></div>
 
     <button class="submit-button" [disabled]="registerForm.status === 'INVALID'" type="submit">check in</button>
 

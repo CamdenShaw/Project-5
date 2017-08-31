@@ -4,12 +4,25 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: darken(magenta, 44%);
+  background: radial-gradient(circle, #E41E54 41%, #C60000 54%, #0F0F48 85%, black 90%);
+  .planet-mars {
+    background-image: url('../../../../assets/planet-mars.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 45%;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.6;
+    position:absolute;
+    align-self: center;
+    z-index:1;
+  }
   .register-header {
     color: white;
     text-transform: uppercase;
     font-family: "Arial Black", Gadget, sans-serif;
     font-size: 3.5rem;
+    z-index:2;
   }
   .register-form {
     display: flex;
@@ -18,14 +31,17 @@
     justify-content: space-around;
     height: 60vh;
     align-items: center;
+    z-index:2;
     .field {
+      font-family: "Courier New", Courier, monospace;
       height: 10vh;
       width: 90vw;
-      background-color: darken(silver, 20%);
+      background-color: rgba(173, 216, 230, 0.5);
       color: #EEE;
       border-color: silver;
       border-width: 0px;
       padding: 0 8px;
+      z-index:2;
       &::placeholder {
         color: #EEE;
         padding: 0 8px;
@@ -46,27 +62,29 @@
       margin: 0;
       padding: 0 8px;
       box-sizing: unset;
+      z-index:2;
     }
     .submit-button {
       display: block;
+      font-family: Impact, Charcoal, sans-serif;
       width: 20vw;
+      min-width: 177px;
       background-color: darken(blue, 30%);
       border-color: lighten(blue, 20%);
       height: 11vh;
       border-radius: 3px;
-      color: lighten(silver, 5%);
+      color: lighten(silver, 20%);
       text-transform: uppercase;
       letter-spacing: 7px;
       font-size: 1.2rem;
       text-align: center;
-      [disabled]:hover {
-        cursor: not-allowed;
-      }
+      z-index:2;
       &:hover {
         transition: .5s;
         cursor: pointer;
         background-color: darken(blue, 35%);
         font-weight: bold;
+        color: white;
         box-shadow: 0px 0px 10px darken(blue, 25%);
         text-shadow: 0 0 18px blue;
       }

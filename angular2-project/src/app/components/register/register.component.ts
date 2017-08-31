@@ -31,7 +31,6 @@ export class RegisterComponent implements OnInit {
   public colonistJob;
   public colonistID = 1;
 
-
   registerForm = new FormGroup({
     name: new FormControl('', [Validators.required,
         Validators.maxLength(100),

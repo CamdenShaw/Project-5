@@ -1,32 +1,35 @@
 .page {
+  background: radial-gradient(circle, #9B0000, #9C002D 70%, midnightblue 90%, black);
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  background-color: darken(purple, 20%);
   align-items: center;
-  font-familY: "Courier New", Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   .report-title {
+    font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;
     color: white;
     margin: 0;
     text-transform: uppercase;
   }
   .report-subtitle {
+    font-family: "Arial Black", Gadget, sans-serif;
     text-align: center;
     color: white;
     margin: 0;
   }
   .report-form {
+    font-family: "Courier New", Courier, monospace;
     height: 75vh;
     width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     .field {
-      background-color: darken(red, 41%);
-      border-color: darken(red, 44%);
+      background-color: #050542;
+      border-color: darken(#FF004D, 44%);
       color: white;
       &::placeholder {
         color: #EEE;
@@ -38,6 +41,7 @@
       }
     }
     .report-selector {
+      font-family: "Courier New", Courier, monospace;
       border-radius: 0;
       border-image: none;
       -webkit-appearance: none;
@@ -45,28 +49,36 @@
       padding: 0 16px;
       box-sizing: unset;
       color: #eee;
-      border: 1px darken(red, 44%) solid;
+      border: 1px darken(#FF004D, 44%) solid;
     }
     .report-text-field {
+      font-family: "Courier New", Courier, monospace;
       height: 56vh;
     }
     .report-button {
-      color: #eee;
-      height: 10vh;
-      border: 1px darken(red, 44%) solid;
-      border-radius: 3px;
-      width: 50vw;
-      box-shadow: 0px 0px 4px purple;
       align-self: center;
+      display: block;
+      font-family: Impact, Charcoal, sans-serif;
+      width: 29vw;
+      min-width: 270px;
+      background-color: darken(blue, 30%);
+      border-color: lighten(blue, 20%);
+      height: 11vh;
+      border-radius: 3px;
+      color: lighten(silver, 20%);
       text-transform: uppercase;
-      letter-spacing: 0.5rem;
+      letter-spacing: 7px;
+      font-size: 1.2rem;
+      text-align: center;
+      z-index:2;
       &:hover {
         transition: .5s;
         cursor: pointer;
-        transition: 0.5s;
-        letter-spacing: 1rem;
-        color: silver;
-        background-color: darken(red, 43%)
+        background-color: darken(blue, 35%);
+        font-weight: bold;
+        color: white;
+        box-shadow: 0px 0px 10px darken(blue, 25%);
+        text-shadow: 0 0 18px blue;
       }
     }
   }
