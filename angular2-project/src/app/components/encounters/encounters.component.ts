@@ -38,11 +38,13 @@ export class EncounterComponent implements OnInit {
 
     const encountersHtml = <HTMLElement> document.querySelector('.local-encounters-array');
     encountersHtml.innerHTML = `<h1 class="local-title">Local Reports</h1>`;
-    if ( typeof localStorage.getItem("report") == "undefined" ) {
-      encountersHtml.innerHTML += `<h2 class="header-no-report><span>No alien encounters near this Martian colony, thank god!</h2>
+
+    if ( typeof localStorage.getItem("report") == "undefined" || localStorage.getItem("report") == null || localStorage.getItem("report") === "" ) {
+      encountersHtml.innerHTML += `<h2 class="header-no-report"><span>No alien encounters near this Martian colony!</h2>
                                   <p class="yoda">Although, Yoda seems cool.</p>`;
     }
     else {
+      console.log(localStorage.getItem("report"));
       const importLocalArray = await JSON.parse(localStorage.getItem("report"));
       const newLocalArray = importLocalArray.slice(-50).reverse();
       newLocalArray.forEach(item => {
@@ -51,9 +53,7 @@ export class EncounterComponent implements OnInit {
                                 <p class="colonist-${item.encounter.colonist_id}">Witnessed by colonist-${item.encounter.colonist_id}</p>
                                 <p class="intro alien-${item.encounter.id}">The following is the colonist\'s account of their encounter with ${item.encounter.atype}: 
                                 <br><span>${item.encounter.action}</span></p>`;
-                                
       });
-      console.log(importLocalArray);
     }
 
   }

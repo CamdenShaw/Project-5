@@ -23,7 +23,7 @@ export class ReportService {
         let headers = new Headers({"Content-Type": "application/json"});
         let body = JSON.stringify({ report });
 
-        if ( typeof localStorage.getItem("report") == "undefined" ) {
+        if ( typeof localStorage.getItem("report") == "undefined" || localStorage.getItem("report") == null || localStorage.getItem("report") === "" ) {
             localStorage.setItem("report", '' );
             this.reportArray = [];
             console.log('empty report array from services ', this.reportArray);

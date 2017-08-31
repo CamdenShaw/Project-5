@@ -55,7 +55,11 @@ export class RegisterComponent implements OnInit {
   async ngOnInit() {
     this.jobs = await this.jobService.getJob();
 
-    if ( typeof localStorage.getItem("colonist")) {
+    if ( typeof localStorage.getItem("colonist") == "undefined" || localStorage.getItem("colonist") == null || localStorage.getItem("colonist") === "") {
+      localStorage.setItem("colonist", "" );
+      this.colonistArray = [];
+    }
+    else {
       if (localStorage.getItem("colonist").length === 0 ) {
         localStorage.setItem("colonist", "" );
         this.colonistArray = [];
@@ -64,10 +68,6 @@ export class RegisterComponent implements OnInit {
         this.colonistArray = (JSON.parse(localStorage.getItem("colonist")));
         this.colonistID = this.colonistArray.length + 1;
       }
-    }
-    else {
-      localStorage.setItem("colonist", "" );
-      this.colonistArray = [];
     }
   }
 

@@ -60,8 +60,8 @@ export class ReportComponent implements OnInit {
 
       this.date = new Date().toISOString().slice(0, 10);
 
-      if ( typeof localStorage.getItem("report") == "undefined" ) {
-        localStorage.reportStorage.setItem("report", '' );
+      if ( typeof localStorage.getItem("report") == "undefined" || localStorage.getItem("report") === null || localStorage.getItem("report") === '' ) {
+        localStorage.setItem("report", '' );
         this.reportArray = [];
         this.encountersID = 1;
         console.log('empty array ', this.reportArray);
