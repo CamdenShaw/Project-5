@@ -1,0 +1,75 @@
+//fonts
+
+$font_header: "Arial Black", Gadget, sans-serif;
+$font_content: "Lucida Console", Monaco, monospace;
+$font_button: Impact, Charcoal, sans-serif;
+
+//button mixins
+@mixin button_style {
+  display: block;
+  font-family: $font_button;
+  align-self: center;
+  width: 30vw;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  min-width: 200px;
+  background-color: darken(blue, 30%);
+  border: 2px lighten(blue, 20%) solid;
+  height: 11vh;
+  border-radius: 3px;
+  z-index:2;
+  &:hover {
+    transition: .5s;
+    box-shadow: 0px 0px 10px darken(blue, 25%);
+    cursor: pointer;
+    background-color: darken(blue, 35%);
+    a, a:visited {
+      transition: .5s;
+      color: white;
+      font-weight: bold;
+      text-shadow: 0 0 18px blue;
+    }
+  }
+  a {
+    transition: .5s;
+    color: lighten(silver, 20%);
+    height: 20px;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 7px;
+    font-size: 1.2rem;
+    align-self: center;
+    text-align: center;
+    &:link, &:visited {
+      color: lighten(silver, 20%);
+    }
+  }
+}
+
+@mixin custom_button {
+  align-self: center;
+  display: block;
+  font-family: $font_button;
+  width: 29vw;
+  min-width: 270px;
+  background-color: darken(blue, 30%);
+  border-color: lighten(blue, 20%);
+  height: 11vh;
+  border-radius: 3px;
+  color: lighten(silver, 20%);
+  text-transform: uppercase;
+  letter-spacing: 7px;
+  font-size: 1.2rem;
+  text-align: center;
+  z-index:2;
+  &:hover {
+    transition: .5s;
+    cursor: pointer;
+    background-color: darken(blue, 35%);
+    font-weight: bold;
+    color: white;
+    box-shadow: 0px 0px 10px darken(blue, 25%);
+    text-shadow: 0 0 18px blue;
+  }
+}

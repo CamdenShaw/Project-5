@@ -1,27 +1,29 @@
+@import '../../../_themes.scss';
+
 .page {
-  background: radial-gradient(circle, #9B0000, #9C002D 70%, midnightblue 90%, black);
+  background: radial-gradient(circle, #830000, #69001E 70%, #0F0F4C 90%, black);
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-family: "Courier New", Courier, monospace;
+  font-family: $font_header;
   .report-title {
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: $font_header;
     text-align: center;
     color: white;
     margin: 0;
     text-transform: uppercase;
   }
   .report-subtitle {
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: $font_header;
     text-align: center;
     color: white;
     margin: 0;
   }
   .report-form {
-    font-family: "Courier New", Courier, monospace;
+    font-family: $font_content;
     height: 75vh;
     width: 90vw;
     display: flex;
@@ -41,7 +43,7 @@
       }
     }
     .report-selector {
-      font-family: "Courier New", Courier, monospace;
+      font-family: $font_content;
       border-radius: 0;
       border-image: none;
       -webkit-appearance: none;
@@ -52,34 +54,11 @@
       border: 1px darken(#FF004D, 44%) solid;
     }
     .report-text-field {
-      font-family: "Courier New", Courier, monospace;
+      font-family: $font_content;
       height: 56vh;
     }
     .report-button {
-      align-self: center;
-      display: block;
-      font-family: Impact, Charcoal, sans-serif;
-      width: 29vw;
-      min-width: 270px;
-      background-color: darken(blue, 30%);
-      border-color: lighten(blue, 20%);
-      height: 11vh;
-      border-radius: 3px;
-      color: lighten(silver, 20%);
-      text-transform: uppercase;
-      letter-spacing: 7px;
-      font-size: 1.2rem;
-      text-align: center;
-      z-index:2;
-      &:hover {
-        transition: .5s;
-        cursor: pointer;
-        background-color: darken(blue, 35%);
-        font-weight: bold;
-        color: white;
-        box-shadow: 0px 0px 10px darken(blue, 25%);
-        text-shadow: 0 0 18px blue;
-      }
+      @include custom_button;
     }
   }
 }

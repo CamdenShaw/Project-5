@@ -1,3 +1,5 @@
+@import '../../../_themes.scss';
+
 .home-container {
   display: flex;
   flex-direction: column;
@@ -9,7 +11,7 @@
   .home-title {
     color: white;
     text-transform: uppercase;
-    font-family: "Arial Black", Gadget, sans-serif;
+    font-family: $font_header;
     font-size: 3.5rem;
     text-align: center;
   }
@@ -74,7 +76,7 @@
     text-transform: uppercase;
   }
   p {
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: $font_content;
   color: white;
   }
 }
