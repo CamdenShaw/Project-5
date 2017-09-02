@@ -84,7 +84,7 @@ $font_button: Impact, Charcoal, sans-serif;
   font-size: 63px;
   display: block;
   left: calc(50% - 100px);
-  animation: loading 1.2s infinite steps(7, end);
+  animation: loading 1s infinite steps(7, end);
 }
 
   @keyframes loading {
