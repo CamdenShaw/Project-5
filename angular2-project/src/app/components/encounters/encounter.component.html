@@ -1,13 +1,16 @@
 <main class="encounters-class">
+    <div class="loading" *ngIf="loading">
+        <div class="center">
+          <div class="loader">loading.</div>
+        </div>
+    </div>
   <div class="header">
     <h1><span class="encounters-main-title">Recent Encounters</span><br>See an Alien? Report it!</h1>
   </div>
-
   <div class="reports-container">
     <div class="encounters-array"></div>
     <div class="local-encounters-array"></div>
   </div>
-
   <div class="encounter-footer" >
     <div class="report-link" routerLink="/report" >
       <a routerLink="/report" >Submit a Report</a>

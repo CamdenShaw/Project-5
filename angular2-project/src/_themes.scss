@@ -73,3 +73,37 @@ $font_button: Impact, Charcoal, sans-serif;
     text-shadow: 0 0 18px blue;
   }
 }
+
+//loader
+@mixin loader {
+  position: absolute;
+  top: calc(50% - 34px);
+  width: 20px;
+  overflow: hidden;
+  height: 68px;
+  font-size: 63px;
+  display: block;
+  left: calc(50% - 100px);
+  animation: loading 1.2s infinite steps(7, end);
+}
+
+  @keyframes loading {
+    0% {
+      from {width: 18px};
+      to {width: 80px};
+    }
+    70%{
+      from {width: 160px};
+      to {width: 170px};
+    }
+    75% {
+      from {width: 170px};
+      to {width: 200px};
+    }
+    90%{
+      width: 210px;
+    }
+    100%{
+      width: 210px;
+    }
+  }

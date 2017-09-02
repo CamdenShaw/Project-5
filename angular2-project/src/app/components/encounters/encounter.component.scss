@@ -73,3 +73,6 @@ main{
     @include button_style;
   }
 }
+.loader {
+  @include loader;
+}
