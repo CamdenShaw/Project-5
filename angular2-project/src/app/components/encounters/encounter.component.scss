@@ -4,10 +4,11 @@ main{
   height: 100vh;
   background-color: lighten(lightblue, 19%);
 }
+
 .header h1 {
-  margin: 0;
+  margin: 5px 0 0;
   padding: 0;
-  height: 15vh;
+  height: 50px;
   padding-bottom: 3vh;
   text-align: center;
   font-size: 0.8em;
@@ -20,11 +21,12 @@ main{
     text-transform: uppercase;
   }
 }
+
 .reports-container {
   font-family: $font_content;
   margin: 0;
   padding: 0;
-  height: 60vh;
+  height: 65vh;
   width: 100%;
   display: flex;
   .encounters-array{
@@ -59,6 +61,7 @@ main{
     }
   }
 }
+
 .encounter-footer{
   width: 100vw;
   height: 24vh;
@@ -73,6 +76,7 @@ main{
     @include button_style;
   }
 }
+
 .loader {
   @include loader;
 }

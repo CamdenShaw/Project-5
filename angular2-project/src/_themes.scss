@@ -1,5 +1,4 @@
 //fonts
-
 $font_header: "Arial Black", Gadget, sans-serif;
 $font_content: "Lucida Console", Monaco, monospace;
 $font_button: Impact, Charcoal, sans-serif;
@@ -78,32 +77,29 @@ $font_button: Impact, Charcoal, sans-serif;
 @mixin loader {
   position: absolute;
   top: calc(50% - 34px);
-  width: 20px;
+  width: 110px;
   overflow: hidden;
   height: 68px;
   font-size: 63px;
   display: block;
   left: calc(50% - 100px);
-  animation: loading 1s infinite steps(7, end);
+  animation: loading 10s infinite steps(4, end);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-  @keyframes loading {
-    0% {
-      from {width: 18px};
-      to {width: 80px};
-    }
-    70%{
-      from {width: 160px};
-      to {width: 170px};
-    }
-    75% {
-      from {width: 170px};
-      to {width: 200px};
-    }
-    90%{
-      width: 210px;
-    }
-    100%{
-      width: 210px;
-    }
+@keyframes loading {
+  0% {
+    from {width: 110px};
+    to {width: 115px};
   }
+  26%{
+    from {width: 115px};
+    to {width: 210px};
+  }
+  90%{
+    width: 210px;
+  }
+  100%{
+    width: 210px;
+  }
+}

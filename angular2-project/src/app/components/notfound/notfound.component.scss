@@ -1,8 +1,19 @@
+@import '../../../_themes.scss';
+
+main {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../../assets/404-asteroids.jpg');
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+}
+
 p {
-  position: absolute;
+  color: white;
+  font-family: $font_content;
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -100%);
   text-align: center;
   text-transform: uppercase;
 }

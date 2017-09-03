@@ -1,18 +1,10 @@
-import { Component, OnInit,
-  Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { JobService } from '../../services/job';
 import { ColonistService } from '../../services/colonist';
 import {FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { Job } from '../../models/job';
 import { Colonist, NewColonist } from '../../models/colonist';
 import { Router } from '@angular/router';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
 
 @Component ({
   selector: 'app-register',

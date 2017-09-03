@@ -1,4 +1,3 @@
-
 export interface Alien {
   id: number;
   atype: string;

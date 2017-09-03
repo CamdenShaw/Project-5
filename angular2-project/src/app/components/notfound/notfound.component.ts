@@ -11,10 +11,7 @@ export class NotfoundComponent implements OnInit {
 
   constructor () {}
 
-
-
   async ngOnInit() {
   }
-
 
 }

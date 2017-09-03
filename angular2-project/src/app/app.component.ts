@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-
 import {
   trigger,
   animate,
@@ -82,6 +81,7 @@ export const routerTransition = trigger( 'routerTransition', [
   styleUrls: ['./app.component.scss'],
   animations: [ routerTransition ]
 })
+
 export class AppComponent {
   getState(outlet) {
     return outlet.activatedRouteData.state;

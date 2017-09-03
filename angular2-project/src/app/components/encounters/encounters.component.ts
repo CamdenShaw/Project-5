@@ -5,8 +5,6 @@ import { AppModule } from '../../app.module';
 import { Router } from "@angular/router";
 import { trigger, state, style, animate, transition } from '@angular/animations';
 
-
-
 @Component ({
   selector: 'app-encounter',
   templateUrl: './encounter.component.html',
@@ -15,9 +13,10 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     EncountersService
   ],
 })
+
 export class EncounterComponent implements OnInit {
 
-  @Input () loading = false;
+  @Input () loading = true;
 
   public newEncounters = JSON.parse(localStorage.getItem("encounters"));
 
@@ -27,7 +26,6 @@ export class EncounterComponent implements OnInit {
   ) {}
 
   async ngOnInit() {
-    this.loading = true;
     const importArray = await this.encountersService.getEncounters();
     const newArray = importArray.slice(-50).reverse();
     let arrayDiv = <HTMLElement> document.querySelector('.encounters-array');

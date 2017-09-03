@@ -4,7 +4,6 @@ import { Encounters, NewEncounters } from '../models/encounters';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-
 export class EncountersService {
     encountersUrl = 'https://red-wdp-api.herokuapp.com/api/mars/encounters';
     constructor(private http: Http){}
