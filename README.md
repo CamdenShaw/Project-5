@@ -1,6 +1,6 @@
 # Project-5
 
-![alt text] (assets/planet-mars.png "Approaching the planet mars")
+![alt text](assets/planet-mars.png "Approaching the planet mars")
 
 #App Usage:
 Mars Colony App was created to identify and report sightings of known alien creatures and create a documented list accessible by all colonists in order to keep track of the alien threat.  (The colonists of Mars are obviously not aware of the irony behind calling the native creatures aliens)
