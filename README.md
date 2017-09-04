@@ -8,7 +8,7 @@ Mars Colony App was created to identify and report sightings of known alien crea
 # Project Info
 This repository contains the Mars Colony App - a project assigned by Red Academy.
 
-# Technologies Used in This Project:
+# Technologies Used in This Project
 Sass/css    Angular   Typescript/javascript    Postman   API   JSON    Github    HTTP requests    ngAnimations
 
 # App Directions
