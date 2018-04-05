@@ -1,7 +1,7 @@
-@import '../../../_themes.scss';
+@import "../../../_themes.scss";
 
 .page {
-  background: radial-gradient(circle, #830000, #69001E 70%, #0F0F4C 90%, black);
+  background: radial-gradient(circle, #830000, #69001e 70%, #0f0f4c 90%, black);
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -30,15 +30,15 @@
     flex-direction: column;
     justify-content: space-around;
     .field {
-      background-color: #050542;
-      border-color: darken(#FF004D, 44%);
-      color: white;
+      background-color: #fffafa;
+      border-color: darken(#ff004d, 44%);
+      color: #111169;
       &::placeholder {
-        color: #EEE;
+        color: #111169;
         padding: 0 8px;
       }
       &:placeholder-shown {
-        color: #EEEDDD;
+        color: #111169;
         padding: 0 8px;
       }
     }
@@ -50,12 +50,13 @@
       margin: 0;
       padding: 0 16px;
       box-sizing: unset;
-      color: #eee;
-      border: 1px darken(#FF004D, 44%) solid;
+      color: #111169;
+      border: 1px darken(#ff004d, 44%) solid;
     }
     .report-text-field {
       font-family: $font_content;
       height: 56vh;
+      padding: 0 8px;
     }
     .report-button {
       @include custom_button;
