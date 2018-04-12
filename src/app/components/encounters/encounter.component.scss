@@ -74,6 +74,9 @@ main{
   align-content: center;
   .report-link{
     @include button_style;
+    a {
+      height: auto;
+    }
   }
 }
 
